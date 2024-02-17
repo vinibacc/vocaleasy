@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Picker, Platform, TextInput, View } from 'react-native';
+import { Button, Dimensions, Picker, Platform, TextInput, View } from 'react-native';
 import * as Speech from 'expo-speech';
-import DeviceInfo from 'react-native-device-info';
 
 export default function App() {
   const [text, setText] = useState('');
@@ -10,7 +9,7 @@ export default function App() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    setIsMobile(DeviceInfo.isHandset());
+    setIsMobile(Platform.OS === 'android' || Platform.OS === 'ios' && Dimensions.get('window').width < 500);
     Speech.getAvailableVoicesAsync().then(availableVoices => {
       setVoices(availableVoices);
       setSelectedVoice(availableVoices[0]?.id);
