@@ -16,6 +16,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.73.4",
+    "react-native-device-info": "^10.12.0",
     "react-native-tts": "^4.1.0",
     "react-native-web": "~0.19.6"
   },
